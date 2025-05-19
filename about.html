@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portofolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Lilita+One&family=Comic+Relief&family=Chau+Philomene+One&family=Concert+One&family=Tuffy&family=PT+Sans&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+        body {
+            display: flex; /* Set flex container */
+            flex-direction: column; /* Atur flex secara kolom */
+            align-items: center; /* Atur item di tengah secara horizontal */
+            justify-content: center; /* Atur item di tengah secara vertikal */
+            min-height: 100vh; /* Set tinggi minimal 100% viewport */
+            background-image: url(background.jpg);
+            background-size: cover; /* Ukuran gambar latar belakang menutupi seluruh area */
+            background-repeat: no-repeat; /* Jangan ulang gambar latar belakang */
+            background-position: center; /* Posisikan gambar di tengah */
+            background-attachment: fixed; /* Pastikan background tidak ikut scroll */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: transparent;
+            z-index: 999;
+        }
+
+        header h1 {
+            font-family: 'Chau Philomene One', cursive;
+            color: #2B1B17;
+            margin: 0;
+            font-size: 100;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #413839;
+            font-weight: bold;
+            font-family: 'Concert One', cursive;
+            font-size: 20px;
+        }
+
+        .nav a:hover {
+            color: #504A4B;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            width: 80%;
+        }
+
+        .content {
+            color: #463E3F;
+        }
+
+        .content h2 {
+            font-size: 50px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .content h3 {
+            font-size: 70px;
+            font-family: 'Lilita One', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            font-size: 20px;
+            color: #463E3F;
+            left: 100px;
+            font-family: 'Quicksand', cursive;
+        }
+
+        span {
+            display: block;
+            text-align: justify;
+            margin-top: 5px;
+        }
+
+        .hero {
+            height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-text h1,
+        .hero-text h2,
+        .hero-text p {
+            margin: 10px 0;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px; /* atau sesuai kebutuhan, misalnya 100px */
+        }
+
+        .content {
+            flex: 1 1 550px;
+            max-width: 600px;
+            margin-right: 100px; /* Tambahan untuk beri jarak dari foto */
+        }
+
+        .content h2 {
+            font-size: 36px;
+            font-family: 'Comic Sans', cursive;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 18px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .hero-photo {
+            flex: 1 1 250px;
+            display: flex;
+            justify-content: center;
+            margin-left: 60px; /* Tambahan jarak dari teks */
+        }
+
+        .hero-photo img {
+            width: 250px;
+            border-radius: 100px 0 100px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+            margin-top: 20px;
+            position: relative;
+            bottom: 0;
+            font-family: 'PT Sans', cursive;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .sosial-link {
+            margin: 5px 0;
+        }
+
+        .sosial-link a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #2B1B17;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .sosial-link a:hover {
+            color: #E238EC;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #2B1B17;
+            z-index: 1000;
+            margin-left: 20px;
+        }
+
+    @media (max-width: 768px) {
+            .nav {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                background-color: rgba(255, 255, 255, 0.95);
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 15px;
+                border-radius: 10px;
+        }
+
+            .nav.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            header {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .content h2 {
+                font-size: 1.5rem;
+            }
+
+            .content h3 {
+                font-size: 2rem;
+            }
+
+            .image img {
+                width: 100%;
+                margin-top: 20px;
+            }
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="container"></div> 
+    <header>
+        <h1>ASN</h1> <!-- Judul header -->
+        <div class="nav" id="navMenu">
+            <a href="home.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="Myskill.html">Skill</a>
+            <a href="serti.html">Certificate</a>
+            <a href="Gallery.html">Gallery</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
+
+
+  <main>
+    <div class="content-wrapper">
+      <div class="content fade-up" id="content">
+        <h2>Haii Kenalin</h2>
+        <p>
+            <span>
+                Saya adalah siswi SMKN 1 Nglegok dengan jurusan Teknik Komputer dan Jaringan. 
+                Memiliki dasar pengetahuan dan pengalaman dalam instalasi jaringan, konfigurasi 
+                perangkat seperti router MikroTik, serta terbiasa mengelola sistem berbasis Linux 
+                dan melakukan remote server management. Selain keterampilan teknis, saya juga mampu 
+                bekerja sama dalam tim, memiliki komunikasi yang baik, serta bersemangat untuk terus 
+                belajar dan berkembang di dunia teknologi.
+            </span>
+        </p>
+      </div>
+      <div class="hero-photo fade-up">
+        <img src="image.png" alt="Foto Profil">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+        <div class="sosial-link">
+            <a href="https://www.instagram.com/afifah_salwa_/" target="_blank">Instagram</a>
+            <a href="https://afifahsalwan.blogspot.com/" target="_blank">Blogspot</a>
+            <a href="https://www.linkedin.com/in/afifah-salwa-58520b28b/" target="_blank">LinkedIn</a>
+        </div>
+        <p>&copy; 2025 Afifah Salwa Nabila</p>
+    </footer>
+
+  <script>
+     
+        // Efek fade-in saat halaman dimuat
+            window.addEventListener('load', () => {
+            const fadeElements = document.querySelectorAll('.fade-up');
+            fadeElements.forEach(el => {
+                el.classList.add('show');
+            });
+        });
+
+        // Toggle menu untuk tampilan mobile
+        function toggleMenu() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.toggle('show');
+        }
+  </script>
+</body>
+</html>
